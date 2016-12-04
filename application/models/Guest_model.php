@@ -446,6 +446,11 @@ class Guest_model extends CI_Model {
 		 $pdf->SetFont('Arial','',12);
 		 $pdf->Cell(70,40,'voteforyou.co');
 		 
+		 // if you wanted to do an image cobrand you could add an image here instead of text
+		 // (look up the FPDF documentation for more info)
+		 // $pdf->Image('images/your_cobrand.jpg',NULL,NULL,50,2);
+		 
+		 
 		 
 	}
 	
