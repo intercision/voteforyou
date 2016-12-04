@@ -2,7 +2,7 @@
 Vote For You
 ###################
 
-This the code base behind a Code Igniter based tool that lets US people easily contact their congress people.  It is just being uploaded so is not in a complete state.  You can see a working copy at the `Vote for You Website <https://www.voteforyou.com>`_
+This the code base behind a Code Igniter based tool that lets US people easily contact their congress people.  It is just being uploaded so is not in a complete state.  You can see a working copy at the `Vote for You Website <https://www.voteforyou.co>`_
 
 #######################################
 What You'll Need Before Getting Started
