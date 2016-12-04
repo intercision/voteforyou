@@ -1,0 +1,6 @@
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|css|js|font|media|user_images|video|js|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
