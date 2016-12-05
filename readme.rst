@@ -22,7 +22,7 @@ Pull down the code.  In the **application/config/** directory there will be **co
 
 Create a database and import the SQL file in the root directory.
 
-Configure your database in the **application/config/database.php**  you will also have to put your Geocode.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha** and add your RECAPCHA keys from Google
+Configure your database in the **application/config/database.php**  you will also have to put your Geocode.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha.php** and add your RECAPCHA keys from Google
 
 ###############
 API Limit

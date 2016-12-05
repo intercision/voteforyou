@@ -293,7 +293,8 @@ Capcha: <input type="text" name="security_code" size=5 value="<?php echo set_val
   </form>
   <br>
   Remember your legislators are determined by your residency so the closer you are to home the more accurate this will be.
-
+<br><br>
+<a href="https://github.com/intercision/voteforyou" data-ajax="false">Get The Source Code</a>
   
   
 </div><!-- /content -->
