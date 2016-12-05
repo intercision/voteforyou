@@ -600,15 +600,3 @@ INSERT INTO govtrack_congress_member VALUES ('539', 'Warren', 'Davidson', '1970-
 INSERT INTO govtrack_congress_member VALUES ('540', 'Colleen', 'Hanabusa', '1951-05-04', 'F', 'rep', 'HI', '1', 'Democrat', 'https://hanabusa.house.gov/', '422 Cannon HOB; Washington DC 20515-1101', '202-225-2726', 'https://hanabusa.house.gov/contact/email', 'https://hanabusa.house.gov/rss.xml', null, null, null, null, null, 'H001050', '2010', 'N00025881', null, '61258', '412418', '17745', 'Colleen Hanabusa', null, '21124', 'Colleen Hanabusa', '1951-05-04');
 INSERT INTO govtrack_congress_member VALUES ('541', 'James', 'Comer', '1972-08-19', 'M', 'rep', 'KY', '1', 'Republican', 'https://comer.house.gov/', '2184 Rayburn HOB; Washington DC 20515-1701', '202-225-3115', 'https://comer.house.gov/contact/email', 'https://comer.house.gov/rss.xml', null, null, null, null, null, 'C001108', null, 'N00038260', null, '76619', '412676', null, 'James Comer Jr.', null, null, 'James Comer (politician)', '1972-08-19');
 INSERT INTO govtrack_congress_member VALUES ('542', 'Dwight', 'Evans', '1954-05-16', 'M', 'rep', 'PA', '2', 'Democrat', 'https://evans.house.gov/', '2301 Rayburn HOB; Washington DC 20515-3802', '202-225-4001', 'https://evans.house.gov/contact/email', 'https://evans.house.gov/rss.xml', null, null, null, null, null, 'E000296', null, 'N00038450', null, '56729', '412677', null, 'Dwight Evans', null, null, 'Dwight Evans (politician)', '1954-05-16');
-
--- ----------------------------
--- Table structure for `vforyou_api_accesses_by_day`
--- ----------------------------
-DROP TABLE IF EXISTS `vforyou_api_accesses_by_day`;
-CREATE TABLE `vforyou_api_accesses_by_day` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `access_date` date DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `access_date` (`access_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;

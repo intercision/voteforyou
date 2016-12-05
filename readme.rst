@@ -20,7 +20,9 @@ Setting Up
 
 Pull down the code.  In the **application/config/** directory there will be **config.php.template**, **database.php.template**, and **recaptcha.php.template**.  You will need to take the .template extension off of them on your end.  Please note that these may be modified and added to and then you will have to merge the changes into your existing files.
 
-Create a database and import the SQL file in the root directory.
+Create a database and import the SQL files in the root directory. 
+
+     Note that January 2017 and every two years after you will need an updated congress SQL file.  You should be able to get an updated SQL file from here but if not there is https://www.govtrack.us/data/congress-legislators the file **legislators-current.csv**  you will have to import CSV and run the commented out birthday fixing file at **Guest/bdays999**
 
 Configure your database in the **application/config/database.php**  you will also have to put your Geocode.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha.php** and add your RECAPCHA keys from Google
 
