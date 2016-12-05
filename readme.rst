@@ -8,11 +8,11 @@ This the code base behind a CodeIgniter based tool that lets US people easily co
 What You'll Need Before Getting Started
 #######################################
 
-1. A host with a relatively recent version of PHP and MySQL.
+1. A host with a relatively recent version of PHP and MySQL
 2. Medium level PHP and CodeIgniter skill
-3. A `Geocod.io <https://geocod.io>`_ account to access congressional districts (you will need the API Key).
-4. A `RECAPCHA <https://www.google.com/recaptcha/intro/comingsoon/index.html>`_ account from Google.
-
+3. A `Geocod.io <https://geocod.io>`_ account to access congressional districts (you will need the API Key)
+4. A `RECAPCHA <https://www.google.com/recaptcha/intro/comingsoon/index.html>`_ account from Google
+5. An SSL certificate or a $20/month CloudFlare membership which gets you one (this is so the browser will allow you to get your geographic location)
 
 ###############
 Setting Up
