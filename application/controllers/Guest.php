@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// govtrack data going away summer '17
+
 class Guest extends CI_Controller {
 
 	/**
@@ -359,39 +361,6 @@ class Guest extends CI_Controller {
 	}
 	
 	
-	/*
-	function bdays999(){
-	
-
-	   $q = $this->db->get('govtrack_congress_member');
-	   $all_res = $q->result_array();
-	   
-		set_time_limit (0);
-		
-	   
-     foreach ($all_res as $row){
-	  
-	    $id = $row['id'];
-		
-	    $birthday = $row['birthday'];
-	
-		
-		    // set email confirm to 1
-	    $db_update = array(
-               'birthday_date' => $birthday	   
-         );
-
-        $this->db->where('id', $id);
-        $this->db->update('govtrack_congress_member', $db_update); 
-			 
-			 
-	  
-
-      }	
-		
-	}
-	
-	*/
 	
 	
 	
