@@ -2,7 +2,7 @@
 Vote For You
 ###################
 
-This the code base behind a CodeIgniter based tool that lets US people easily contact their congress people.  It is just being uploaded and has run successfully on a LAMP shared hosting site and a Windows 10 + Apache, MySQL host.  You can see a working copy at the `Vote for You Website <https://www.voteforyou.co>`_
+This the code base behind a CodeIgniter based tool that lets US people easily contact their U.S. Congress people.  It is just being uploaded and has run successfully on a LAMP shared hosting site and a Windows 10 + Apache, MySQL host.  You can see a working copy at the `Vote for You Website <https://www.voteforyou.co>`_
 
 ###################
 Updates
@@ -49,4 +49,4 @@ This code is released under an MIT license but the design is released into the c
 Other Notes
 ###############
 
-This is my first GitHub project so it might not work at all.  I cannot be held liable for any damages this code may cause.
+This is my first GitHub project.  I cannot be held liable for any damages this code may cause.
