@@ -11,6 +11,7 @@ class Experimental extends CI_Controller {
 	// if you importing the data from a CSV instead of an SQL file
     // you need to run this to put the birthdays in a date field
 	
+
 	/*
 	
 	function bdays999(){
@@ -47,8 +48,43 @@ class Experimental extends CI_Controller {
 	*/
 	
 	
+	
+	/*
+	function images_from_bioguide(){
+	
+
+	   $q = $this->db->get('govtrack_congress_member');
+	   $all_res = $q->result_array();
+	   
+		set_time_limit (0);
+		
+	   
+	 $i = 0;
+	 
+     foreach ($all_res as $row){
+	  
+	    $bioguide_id = $row['bioguide_id'];
+
+		$first_letter = substr($bioguide_id, 0,1);
+ 
+        $image_url = 'http://bioguide.congress.gov/bioguide/photo/'.$first_letter.'/'.$bioguide_id.'.jpg';
+	  
+	    echo "<img src=".$image_url.">";
+		echo "<br>";
+		
+        $i++;
+	  
+	    //if ($i >= 10) break;
+	  
+      }
+		
+	}
+	
+	*/
+	
 	/*
 	
+	// not as good as https://github.com/unitedstates/congress-legislators Python script to do it
 
 	public function yaml_to_csv()
 	{

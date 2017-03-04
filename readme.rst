@@ -8,7 +8,9 @@ This the code base behind a CodeIgniter based tool that lets U.S. people easily 
 Updates
 ###################
 
-**1/3/2017** - just added the 115th Congress.  If you will have to load 115th_congress.sql into your database if you were using the old data
+**3/4/2017** - just updated the 115th Congress info with all the birthdays.  You will have to load 115th_congress.sql into your database replacing what's there.  I also changed the site so it shows congressional birthdays on the home page.
+
+**1/3/2017** - just added the 115th Congress.  You will have to load 115th_congress.sql into your database if you were using the old data
 
 #######################################
 What You'll Need Before Getting Started

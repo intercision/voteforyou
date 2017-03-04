@@ -32,26 +32,19 @@ class Guest extends CI_Controller {
 		 
 		  // use location from GPS? 
 		  
-		  $this->load->library('form_validation');
-
 		  $data['message'] = '';
 		 
 		
 	      $this->load->model('guest_model');
 	
-	
-	      $data['page_title'] = 'Enter an Address';
-		  $data['message'] = '';
+	      $month_day = date('m-d');
 		  
-		$this->load->library('Recaptcha');
-		
-		
-		$data['recap_widget'] = $this->recaptcha->getWidget();
-		$data['recap_script'] = $this->recaptcha->getScriptTag();
+		  
+	      $data['people_with_birthdays'] = $this-> guest_model -> get_officials_bday($month_day);
 
-		// doesn't do any of the form processing so don't need it   look_up does
-		
-		$this->load->view('guest/index',$data);
+		  
+
+		  $this->load->view('guest/index',$data);
 		
  
 	}
@@ -101,7 +94,7 @@ class Guest extends CI_Controller {
 	    if ($this->form_validation->run() == FALSE)
         {
 		    
-            $this->load->view('guest/index',$data);
+            $this->load->view('guest/look_up',$data);
 		}
 		else {
 			

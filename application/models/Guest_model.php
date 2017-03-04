@@ -283,6 +283,26 @@ class Guest_model extends CI_Model {
 	}
 	
 	
+	
+	
+    function get_officials_bday ($date){
+
+	
+	$qtxt = "SELECT * FROM govtrack_congress_member WHERE MONTH(birthday_date) = MONTH(NOW()) AND DAY(birthday_date) = DAY(NOW());";
+	
+	// $qtxt = "SELECT * FROM govtrack_congress_member WHERE MONTH(birthday_date) = 6 AND DAY(birthday_date) = 14;";
+	
+
+	
+	
+       $q = $this->db->query($qtxt);
+	   return $q->result_array();
+	
+	}
+	
+	
+	
+	
 	function generate_pdf($state_twoletter='MI',$district=1){
 		
 		$x_offset = 0; $y_offset = 0;

@@ -7,9 +7,14 @@ function remove_rest_from_number($phone_number){
 
 function check_bday($bday){
 	
- $today = date('Y-m-d');
+ $today = date('m-d');  //2004-
  
- if ($today == $bday){
+ $bday_no_year = substr($bday,5);
+ 
+
+ // die($today. " ".$bday_no_year);
+ 
+ if ($today == $bday_no_year) {
    return true;	
  }
  else {

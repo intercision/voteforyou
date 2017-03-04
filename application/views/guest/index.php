@@ -5,33 +5,24 @@ function remove_rest_from_number($phone_number){
   return preg_replace("/[^0-9]/","",$phone_number);	
 }
 ?>
+
 <head>
-<title>Look Up Your Congress People!</title>
+<title>Congressional Birthdays</title>
 
 
-<?php
-  echo $recap_script;
-?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes" />
-
-<!--
-
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
--->
-
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.mobile-1.4.5.min.css" />
 <script src="<?php echo base_url(); ?>js/jquery-1.11.1.min.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery.mobile-1.4.5.min.js"></script>
 
 
+
 <script>
 
 
-	$( document ).on( "pageinit", "#search_page", function( event ) {
+	$( document ).on( "pageinit", "#results_page", function( event ) {
 		// document.ready
 		
 		$('#getloc').click(function(){
@@ -40,34 +31,11 @@ function remove_rest_from_number($phone_number){
 		 getLoc();
 		 
 		 
-
-		 
-       });
-	   
-	   
-	   $('#getpostal').click(function(){
-         
-		$('#postal_address').show('medium');
-		 
-		 
-       });
-	   
-	   
-	   // error form post save location
-	if (document.getElementById("lat").value != ''){
-       $('#getloc').css('background','#dfd');
-       $('#getloc').html('&nbsp;&nbsp;&nbsp;&nbsp;Location Found&nbsp;&nbsp;&nbsp;&nbsp;');
-       $('#getpostal').css('color','#aaa');
-	}
-   
-		// error form post save location
-	if (document.getElementById("postal_address_field").value != ''){
-       $('#postal_address').show('fast');
-	}
-   
-   // title for <title>
-   $(":jqmData(role='page')").attr("data-title", document.title);
+       })
 		
+		
+		// title page title for displayed title
+		$(":jqmData(role='page')").attr("data-title", document.title);
 		
 	});
 	
@@ -75,74 +43,6 @@ function remove_rest_from_number($phone_number){
 	
 	
 	
-	
-function getLoc(){
-	
-	$('#getloc').html('&nbsp;&nbsp;&nbsp;&nbsp;Getting Location...&nbsp;&nbsp;&nbsp;&nbsp;');
-
-	
-if (navigator.geolocation) {
-  var timeoutVal = 10 * 1000 * 1000;
-  navigator.geolocation.getCurrentPosition(
-    submitPosition, 
-    displayError,
-    { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
-  );
-}
-else {
-  // alert("Geolocation is not supported by this browser");
-}
-
-}
-
-
-
-function submitPosition(position) {
-	
-  // must LIGHT UP button green
-  
-  
-  // alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-  
-  lat = position.coords.latitude.toFixed(8);
-  lng = position.coords.longitude.toFixed(8);
-  
-  
-  document.getElementById("lat").value=lat;
-  document.getElementById("lng").value=lng;
- 
-  /*
-  $("#lat").val = lat;
-  $("#lng").val = lng;
-   */
-  
-
-  // turn button green  
-  
-   $('#getloc').css('background','#dfd');
-
-    $('#getloc').html('&nbsp;&nbsp;&nbsp;&nbsp;Location Found&nbsp;&nbsp;&nbsp;&nbsp;');
-
-   $('#getpostal').css('color','#aaa');
-  
-  
-}
-
-
-function displayError(error) {
-  var errors = { 
-    1: 'Permission denied',
-    2: 'Position unavailable',
-    3: 'Request timeout'
-  };
-  console.log("Error: " + errors[error.code]);
-  
-  $('#getloc').css('background','#fdd');
-  	$('#getloc').html('Error Getting Location');
-
-	
-}
-
 
 </script>
 <style type="text/css">
@@ -176,16 +76,50 @@ function displayError(error) {
   font-size: 1.3em;
 }
 
-#postal_address {
-  display: none;	
+
+#dc_page_content h1 {
+
+ padding-bottom: 0em;	
+ margin-bottom: 0;
+ font-size: 1.5em;
+ letter-spacing: .2em;
+ padding-bottom: 3px;
+ border-bottom: 1px solid #aaa;
+ font-weight: normal;
+ font-family: "Times New Roman",times,serif;
+ text-transform: uppercase;
 }
 
 
-.top_button {
+#dc_page_content h2 {
+
+ padding-bottom: 0em;	
+ margin: 0;
+ 
+}
+
+#dc_page_content p.subtitle {
+  margin: 0;
+  padding: 0;  
 	
-  margin-bottom: .6em !important;
-  
 }
+
+#dc_page_content #fridge {
+	max-width: 100px;
+	
+}
+
+#cake_image {
+  max-width: 60px;	
+}
+
+
+.bday_holder {
+ float: left;
+ margin-right: 4%; 
+	
+}
+
 
 
 
@@ -195,112 +129,108 @@ function displayError(error) {
 <body>
 
 
-
-<div data-role="page" id="search_page">
+<div data-role="page" id="results_page">
 
 	<div data-role="header" data-tap-toggle="false" id="our_header">
-		<h3>Congress Lookup</h3>
-		  
-		  
-		  <!--
- <div class="ui-grid-a">
-      <div class="ui-block-a">
-            <fieldset data-role="controlgroup" data-type="horizontal" class="top-group">
-                <a href="#" data-role="button" data-icon="arrow-l" id="previous" class="nudge_down_buttons">Prev</a>
-	            <a href="#" data-role="button" data-icon="arrow-r" id="next" class="nudge_down_buttons">Next</a>	   
-		     </fieldset>
-      </div>
-      <div class="ui-block-b">
-	         <div id="speed_view_holder">
-               <label>
-                <input type = "checkbox" name="speed_view" id="speed_view">Speed View
-               </label>
-		     </div>
-      </div>
-    </div>
-	
-	  -->
-
-	
-	
-		
+		<h1>Congressional Birthdays</h1>
 	</div><!-- /header -->
 
-	<div data-role="content" id="search_page_content">	
+	<div data-role="content" id="dc_page_content">	
+
+	
+	<h1>Congressional Birthdays Today</h1>
+	<br>
+	
+	<?php
+	 foreach ($people_with_birthdays as $row){
+		 
+		?>
+		<div class="bday_holder">
+		
+		<?php
+	  $bioguide_id = $row['bioguide_id'];
+	  $type = $row['type'];
+	  $district = $row['district'];
+	  $state = get_state_name_view($row['state']);
+	  
+	  if ($type == 'rep'){
+		  $type_copy = "Representative";
+	  }
+	  else if ($type == 'sen') {
+		  $type_copy = "Senator";
+	  }
+	  
+	  
+if ($district == 1){
+	$district_with_copy = '1st';
+}
+else if ($district == 2) {
+	$district_with_copy = '2nd';
+}
+else if ($district == 3) {
+	$district_with_copy = '3rd';
+}
+else {
+	$district_with_copy = $district.'th';
+}
 
 
-<?php
- if (validation_errors()){
-?>
-<div id="error">
-  <span id="complaint_form"><?php echo validation_errors(); ?></span>
-</div>
-<?php
- }
-?>
 
-  <?php echo form_open(base_url().'look_up','data-ajax="false"'); ?>
-
-<!--
-
-
-
-<input type="button" value="Use Current Location" onClick="getLoc()">
--->
-
-   <fieldset data-role="controlgroup" data-type="vertical" class="top-group"> 
-
-		     
-<a href="#" data-role="button" data-icon="location" id="getloc" class="top_button">Use Current Location</a>   
-<a href="#" data-role="button" data-icon="mail" id="getpostal" class="top_button">Enter Postal Address</a> 
-</fieldset>
-			 
-<!--
-<div class="ui-grid-a">
-      <div class="ui-block-a">
-         
-      </div>
-      <div class="ui-block-b" id="loc_text_holder">
-	       <div id="loc_text_copy"> </div>
-      </div>
-    </div>
+	  
+	  $first_letter = substr($bioguide_id, 0,1);
+ 
+      $image_url = 'http://bioguide.congress.gov/bioguide/photo/'.$first_letter.'/'.$bioguide_id.'.jpg';
+	  
+	  
+	  echo "<img src=".$image_url." onerror=\"this.onerror=null;this.src='".base_url()."images/no_image.jpg';\">";
+	  echo "<br>";
+	  echo "<p class=\"subtitle\"><b>".$row['first_name']." ".$row['last_name']."</b> - ".$row['party']."</p>";
+	  
+	  
+	  if ($type == 'rep'){
+	    echo "<p class=\"subtitle\">".$type_copy." of the ".$district_with_copy." district of ".$state."</p>";
+	  }
+	  else {
+	    echo "<p class=\"subtitle\">".$type_copy." of ".$state."</p>";
+	  }
+	  
+	  
+	  echo "<br>";
+	?>
+	
+	
+	</div>
+	
+	<?php
+	
+	 }
+	 
+	?>
+	
+	<!--
+	 
+	 <h1>Representative</h1>
+  <h2>Eleanor Norton</h2>
+  <p class="subtitle">Democrat</p>
+  <p class="phone"><a href="tel:2022258050">(202) 225-8050</a></p>
+    
 	-->
 	
-<input type="hidden" name="lat" size=12 id="lat" value="<?php echo set_value('lat',$this->input->post('lat') ); ?>"> 
-<input type="hidden" name="lng" size=12 id="lng" value="<?php echo set_value('lng',$this->input->post('lng') ); ?>">
+	 
+	 <!--
+	 You have no represantation but you can pay the people representing everyone else a visit as much as you would like.
+	 -->
+	 
+	 <br style="clear: both;">
+	 
+	 <br>
+<a href="<?php echo base_url(); ?>look_up" data-role="button" data-ajax="false" data-icon="home" id="home">Look Up Your Congress People</a>	
 
 
-<div id="postal_address">
-Enter Postal Address:  <input type="text" id="postal_address_field" name="address" size=39 value="<?php echo set_value('address', $this->input->post('address')); ?>">
-<br>
-</div>
-
-
-<?php
-  echo $recap_widget;
-?>
-
-
-<!--
-Capcha: <input type="text" name="security_code" size=5 value="<?php echo set_value('cap'); ?>"> Type the code <b>YES</b> in the box<br>
--->
-
-
-<br>
-
-<input type="Submit" value="Look Them Up!" data-theme="b" id="look_them_up_button">
-  
-  </form>
-  <br>
-  Remember your legislators are determined by your residency so the closer you are to home the more accurate this will be.
-<br><br>
-<a href="https://github.com/intercision/voteforyou" data-ajax="false">Get The Source Code</a>
-  
-  
 </div><!-- /content -->
 
 <div data-role="footer">
-<a href="<?php echo FEEDBACK_LINK; ?>" data-ajax="false">Feedback</a>
+<a href="<?php echo base_url(); ?>" data-role="button" data-ajax="false" data-icon="home" id="home">Home</a>	 
 
 </div>
 </div>
@@ -308,15 +238,86 @@ Capcha: <input type="text" name="security_code" size=5 value="<?php echo set_val
 <!-- page end -->
 </div>
 	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-88348216-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 </html>
+<?php
+
+// not good form
+	function get_state_name_view($state_twoletter){
+		
+		$state_twoletter = strtoupper($state_twoletter);
+		
+	$states = Array (
+'AL' => 'Alabama',
+'AK' => 'Alaska',
+'AZ' => 'Arizona',
+'AR' => 'Arkansas',
+'CA' => 'California',
+'CO' => 'Colorado',
+'CT' => 'Connecticut',
+'DE' => 'Delaware',
+'FL' => 'Florida',
+'GA' => 'Georgia',
+'HI' => 'Hawaii',
+'ID' => 'Idaho',
+'IL' => 'Illinois',
+'IN' => 'Indiana',
+'IA' => 'Iowa',
+'KS' => 'Kansas',
+'KY' => 'Kentucky',
+'LA' => 'Louisiana',
+'ME' => 'Maine',
+'MD' => 'Maryland',
+'MA' => 'Massachusetts',
+'MI' => 'Michigan',
+'MN' => 'Minnesota',
+'MS' => 'Mississippi',
+'MO' => 'Missouri',
+'MT' => 'Montana',
+'NE' => 'Nebraska',
+'NV' => 'Nevada',
+'NH' => 'New Hampshire',
+'NJ' => 'New Jersey',
+'NM' => 'New Mexico',
+'NY' => 'New York',
+'NC' => 'North Carolina',
+'ND' => 'North Dakota',
+'OH' => 'Ohio',
+'OK' => 'Oklahoma',
+'OR' => 'Oregon',
+'PA' => 'Pennsylvania',
+'RI' => 'Rhode Island',
+'SC' => 'South Carolina',
+'SD' => 'South Dakota',
+'TN' => 'Tennessee',
+'TX' => 'Texas',
+'UT' => 'Utah',
+'VT' => 'Vermont',
+'VA' => 'Virginia',
+'WA' => 'Washington',
+'WV' => 'West Virginia',
+'WI' => 'Wisconsin',
+'WY' => 'Wyoming',
+'DC' => 'District of Columbia',
+'AS' => 'American Samoa',
+'GU' => 'Guam',
+'MP' => 'Northern Mariana Islands',
+'PR' => 'Puerto Rico',
+'UM' => 'United States Minor Outlying Islands',
+'VI' => 'Virgin Islands, U.S.');
+
+	
+	if (array_key_exists ( $state_twoletter , $states)){
+		
+		return $states[$state_twoletter];
+		
+	}
+	else {
+	  return false;	
+		
+	}
+	
+		
+	}
+	
+?>
