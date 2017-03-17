@@ -31,3 +31,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /data
 /398A3197E558CAAB6806ADC953634C52.txt
 /114th_congress_govetrack.sql
+/media/list.csv
+/media/list_dest.csv

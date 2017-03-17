@@ -32,7 +32,7 @@ Create a database and import the SQL files in the root directory.
 
      Note that January 2017 and at least every two years after you will need an updated congress SQL file.  You should be able to get an updated SQL file from here but if not there is https://github.com/unitedstates/congress-legislators  You will have to pull or download that Python script and run **alternate_bulk_formats.py** to get the file **legislators-current.csv**.  To do this you'll need Python 3 and some non included Python libraries.  If on Linux, use pip3 to get Python libraries.  For example I know you'll type **pip3 install rtyaml** to get the YAML one.  After importing the CSV and removing the first record you have to run the commented out birthday fixing file at **Experimental/bdays999**
 
-Configure your database in the **application/config/database.php**  you will also have to put your Geocode.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha.php** and add your RECAPCHA keys from Google
+Configure your database in the **application/config/database.php**  you will also have to put your Geocod.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha.php** and add your RECAPCHA keys from Google
 
 ###############
 API Limit

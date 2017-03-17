@@ -47,6 +47,233 @@ class Experimental extends CI_Controller {
 	
 	*/
 	
+	/*
+	
+	function wait_test(){
+	
+       @set_time_limit(0);
+ 	   sleep(300);
+
+	   echo "done waiting";
+	
+    }
+
+	*/
+	
+	
+	
+	/*
+	
+	function add_fields(){
+		
+		   // takes in a CSV list of emails put through geocod.io (make sure to add Congressional District to your geocoding)
+		   // to put in media/list.csv
+		   
+		   // this currently just adds fields, does not update them
+		   // you need to delete the fields it will add to have it add them
+		   
+		   
+		   // may have to bump up max_execution_time in php.ini on your system
+		   @set_time_limit(0);
+		   
+		   $has_sen = false;
+		   $has_rep = false;
+		
+		
+		
+		   // rep and sen prefixes
+		   
+		   
+		   // this can be any field from that govtrack_congress_member table
+		   // preceded by either sen_ or rep_ depending on if you want to get a Representative or Senator
+		   
+		   $fields_to_add = Array(
+		     'sen_first_name','sen_last_name','sen_phone',
+			 'rep_first_name','rep_last_name','rep_phone'
+		   );
+		   
+		   
+		
+	       $this->load->library('csvreader');
+
+		   $this->load->model('experimental_model');
+		   
+		   
+		   // list.csv is where your e-mail list (run through geocod.io to get the congressional district)
+           $filePath = './media/list.csv'; 
+
+           $csv_contents = $this->csvreader->parse_file($filePath);
+
+
+	
+	       $fp = fopen('./media/list_dest.csv', 'w');
+	
+	
+		   $key_row_array = Array();
+		   
+		   // get row headings
+		   $key_row = '';
+		   foreach($csv_contents[0] as $key => $value){
+			   
+			
+			   $key_row_array[] = $key;
+			   
+		   }
+		   
+		
+		
+		   $rep_fields = Array();
+		   $sen_fields = Array();
+		   
+		   // add our row headings and split sen/rep fields
+		   
+		   $field_dest_array = Array();
+		   
+		   foreach($fields_to_add as $field){
+			   
+			   // check for sen and rep
+
+			   if ( strpos($field, 'rep_') !== false ) {
+
+			     $has_rep = true;
+			     
+				 $rep_fields[] = substr($field,4);
+				 
+				 $field_dest_array[] = $field;
+		         $key_row_array[] = $field;
+			   }
+               else if ( strpos($field, 'sen_') !== false ) {
+				   
+			      $has_sen = true;
+			      $field_short = substr($field,4);
+				  $sen_fields[] = $field_short;
+				  
+				  
+				  // two fields for senators   right next to each other!
+				  
+				  
+
+		          $key_row_array[] =  'sen1_'.$field_short;  $key_row_array[] =  'se2_'.$field_short;
+			   
+				  
+				  $field_dest_array[] = 'sen1_'.$field_short;  $field_dest_array[] = 'sen2_'.$field_short;
+				  
+			   }
+			   
+			   
+		   }
+		   
+		   
+		   fputcsv($fp, $key_row_array);
+		   
+		   
+		   
+		   
+		   
+		  
+	
+			$dest_row_array = Array();
+			  
+		   foreach($csv_contents as $field){
+		   
+		   
+		   // optimized for geocod.io
+		   // [state_twoletter][district #]
+		   $heading_name = '"Congressional District"';
+		   
+		   
+	
+	    
+			// must build array
+			
+			// found district info in source CSV
+			if (array_key_exists($heading_name,$field)){
+		      $state_plus_district = $field[$heading_name];
+			  $state_twoletter = substr($state_plus_district,0,2);
+			  $district = substr($state_plus_district,2);
+			  
+			  
+			  if ($has_rep){
+			     $rep = $this-> experimental_model -> get_official_rep_record($state_twoletter,$district);
+				 
+				 foreach ($rep as $row){
+					
+					
+                    foreach ($rep_fields as $rf_key){
+						
+						// echo $row[$sf_key].",";
+						$dest_key = 'rep_'.$rf_key;
+						$dest_row_array[$dest_key] = $row[$rf_key];
+						
+					}
+					
+					
+				   
+				   
+				}
+				
+				
+			  }
+			  
+			  if ($has_sen){
+				// going to be two on this one
+			    $sen = $this-> experimental_model -> get_official_sen_record($state_twoletter);
+				
+				$i = 1;
+				foreach ($sen as $row){
+					
+                    foreach ($sen_fields as $sf_key){
+						
+						$dest_key = 'sen'.$i."_".$sf_key;
+						$dest_row_array[$dest_key] = $row[$sf_key];
+						
+					}
+					
+					
+					$i++;
+				}
+
+			  }
+
+		    }
+			
+			
+			 // initial fields
+			
+             $final_there_array = Array();
+			 foreach ($field as $key => $value){
+			   $final_there_array[] = $value;	 
+			 }
+			 
+			 $final_addon_array = Array();
+			 
+			 // >>> field_dest_array has the best information  <<<
+			 
+			 
+			 // addon fields  $correct_order_holder = Array();
+			 foreach ($field_dest_array as $key2){	 
+				$final_addon_array[] = $dest_row_array[$key2];
+			 }
+
+
+             $final_row_array = array_merge($final_there_array, $final_addon_array);			 
+
+			 
+			$put_flag = fputcsv($fp, $final_row_array);
+			 
+
+			// foreach csv_contents
+		   }
+		   
+		   
+		   echo "Output is going to be in media/list_dest.csv";
+		
+	}
+	
+	
+	*/
+	
+	
 	
 	
 	/*
