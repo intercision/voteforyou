@@ -13,6 +13,17 @@ function remove_rest_from_number($phone_number){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes" />
 
+<!--  Facebook  -->
+<meta property="og:title" content="voteforyou.co - Congressional lookup and birthdays" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="http://voteforyou.co/images/fb_header.jpg" />
+<meta property="og:image:secure_url" content="<?php echo base_url(); ?>images/fb_header.jpg" />
+<meta property="og:url" content="http://voteforyou.co" />
+<meta property="og:description" content="Interact with your congress people and print their info for your fridge." />
+
+
+
+
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.mobile-1.4.5.min.css" />
 <script src="<?php echo base_url(); ?>js/jquery-1.11.1.min.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery.mobile-1.4.5.min.js"></script>
@@ -201,13 +212,14 @@ else {
 	
 	</div>
 	
-	<?php
+      <p>
+        <?php
 	
 	 }
 	 
 	?>
-	
-	<!--
+	      
+        <!--
 	 
 	 <h1>Representative</h1>
   <h2>Eleanor Norton</h2>
@@ -215,19 +227,23 @@ else {
   <p class="phone"><a href="tel:2022258050">(202) 225-8050</a></p>
     
 	-->
-	
-	 
-	 <!--
+	      
+	      
+        <!--
 	 You have no represantation but you can pay the people representing everyone else a visit as much as you would like.
 	 -->
-	 
-	 <br style="clear: both;">
-	 
-	 <br>
-<a href="<?php echo base_url(); ?>look_up" data-role="button" data-ajax="false" data-icon="home" id="home">Look Up Your Congress People</a>	
-
-
-</div><!-- /content -->
+	      
+        <br style="clear: both;">
+	      
+        <br>
+        <a href="<?php echo base_url(); ?>look_up" data-role="button" data-ajax="false" data-icon="home" id="home">Look Up Your Congress People</a>	
+	      
+	      
+	      
+      </p>
+      <p><a href="https://github.com/intercision/voteforyou" data-ajax="false"><br>
+      Get The Source Code</a></p>
+  </div><!-- /content -->
 
 <div data-role="footer">
 <a href="<?php echo base_url(); ?>" data-role="button" data-ajax="false" data-icon="home" id="home">Home</a>	 

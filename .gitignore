@@ -33,3 +33,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /114th_congress_govetrack.sql
 /media/list.csv
 /media/list_dest.csv
+/application/controllers/Auxilary.php
+/application/controllers/Auxiliary.php
+/application/models/stripe_model.php
+/application/helpers/crude_stripe_rest_post_helper.php

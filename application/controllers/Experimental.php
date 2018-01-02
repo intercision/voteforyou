@@ -12,8 +12,6 @@ class Experimental extends CI_Controller {
     // you need to run this to put the birthdays in a date field
 	
 
-	/*
-	
 	function bdays999(){
 	
 
@@ -45,7 +43,6 @@ class Experimental extends CI_Controller {
 		
 	}
 	
-	*/
 	
 	/*
 	
