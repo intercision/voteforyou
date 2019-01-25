@@ -8,6 +8,8 @@ This the code base behind a CodeIgniter based tool that lets U.S. people easily 
 Updates
 ###################
 
+**1/25/2019** - Added 116th Congress
+
 **3/4/2017** - just updated the 115th Congress info with all the birthdays.  You will have to load 115th_congress.sql into your database replacing what's there.  I also changed the site so it shows congressional birthdays on the home page.
 
 **1/3/2017** - just added the 115th Congress.  You will have to load 115th_congress.sql into your database if you were using the old data
@@ -20,7 +22,7 @@ What You'll Need Before Getting Started
 2. Medium level PHP and CodeIgniter skill
 3. A `Geocod.io <https://geocod.io>`_ account to access congressional districts (you will need the API Key)
 4. A `RECAPCHA <https://www.google.com/recaptcha/intro/comingsoon/index.html>`_ account from Google
-5. An SSL certificate or a $20/month CloudFlare membership which gets you one (this is so the browser will allow you to get your geographic location)
+5. An SSL certificate or a free CloudFlare membership which gets you one (this is so the browser will allow you to get your geographic location)
 
 ###############
 Setting Up
@@ -30,7 +32,7 @@ Pull down the code.  In the **application/config/** directory there will be **co
 
 Create a database and import the SQL files in the root directory.  
 
-     Note that January 2017 and at least every two years after you will need an updated congress SQL file.  You should be able to get an updated SQL file from here but if not there is https://github.com/unitedstates/congress-legislators  You will have to pull or download that Python script and run **alternate_bulk_formats.py** to get the file **legislators-current.csv**.  To do this you'll need Python 3 and some non included Python libraries.  If on Linux, use pip3 to get Python libraries.  For example I know you'll type **pip3 install rtyaml** to get the YAML one.  After importing the CSV and removing the first record you have to run the commented out birthday fixing file at **Experimental/bdays999**  NOTE they may have a ready made CSV file for you, also note that the field amount has changed since early 2017 so you will have to change that in the SQL of your table (if you download the SQL file directly from us the changes are baked in)
+     Note that January 2017 and at least every two years after you will need an updated congress SQL file.  You should be able to get an updated SQL file from here but if not there is https://github.com/unitedstates/congress-legislators  In 2019 they have the CSV file made for you but if not you will have to pull or download that Python script and run **alternate_bulk_formats.py** to get the file **legislators-current.csv**.  To do this you'll need Python 3 and some non included Python libraries.  If on Linux, use pip3 to get Python libraries.  For example I know you'll type **pip3 install rtyaml** to get the YAML one.  After importing the CSV and removing the first record you have to run the commented out birthday fixing file at **Experimental/bdays999**  NOTE they may have a ready made CSV file for you, also note that the field amount has changed since early 2017 so you will have to change that in the SQL of your table (if you download the SQL file directly from us the changes are baked in)
 
 Configure your database in the **application/config/database.php**  you will also have to put your Geocod.io API key in the **config.php**.  There are API limit,  feedback link, and local/remote host settings there too.  Lastly you'll have to go to **recaptcha.php** and add your RECAPCHA keys from Google
 
